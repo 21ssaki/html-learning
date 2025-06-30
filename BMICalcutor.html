@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI計算機</title>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI計算機</h1>
+
+```
+    <label>身長 (cm):</label>
+    <input type="number" id="height" placeholder="170">
+    
+    <label>体重 (kg):</label>
+    <input type="number" id="weight" placeholder="60">
+    
+    <button onclick="calculateBMI()">計算する</button>
+    
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateBMI() {
+        // 入力値を取得
+        var height = document.getElementById('height').value;
+        var weight = document.getElementById('weight').value;
+        
+        // 入力チェック
+        if (height == '' || weight == '') {
+            alert('身長と体重を入力してください');
+            return;
+        }
+        
+        // BMI計算
+        var heightM = height / 100; // cmをmに変換
+        var bmi = weight / (heightM * heightM);
+        
+        document.getElementById('result').innerHTML = 'BMI: ' + bmi.toFixed(1);
+    }
+</script>
+</body>
+</html>
