@@ -9,6 +9,8 @@ HTMLとCSSとJavaScriptで機能を実装しています
  *CSSでのスタイリング（カラー文字等の追加） 
  *JavaScriptでの計算機能実装 
  *display: noneを使った結果表示の動的制御
+
+-簡単家計簿作成 
  
 -こんにちはゲーム作成
  *botton onclickを利用したボタンクリック
@@ -19,8 +21,8 @@ HTMLとCSSとJavaScriptで機能を実装しています
 ## 使用技術
 -HTML/CSS/JavaScript
 
-# HTML BMI計算機
-HTML/CSS/JavaScriptで作成したBMI計算機プロジェクト 
+##今後の予定
+精度の高いものにしていく、新たな技術を取り入れて更新していく
 
 
 ## 今後の予定
