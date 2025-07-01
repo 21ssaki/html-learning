@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡単家計簿</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: white;
+        }
+
+```
+    h1 {
+        text-align: center;
+    }
+    
+    .form {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    input {
+        padding: 5px;
+        margin: 5px;
+        width: 200px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .summary {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .list {
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+    
+    .item {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+    }
+</style>
+```
+
+</head>
+<body>
+    <h1>簡単家計簿</h1>
+
+```
+<!-- 入力フォーム -->
+<div class="form">
+    <h2>お金の記録</h2>
+    <input type="text" id="name" placeholder="内容（例：コンビニ）">
+    <input type="number" id="money" placeholder="金額">
+    <select id="type">
+        <option value="out">支出</option>
+        <option value="in">収入</option>
+    </select>
+    <button onclick="add()">追加</button>
+</div>
+
+<!-- 合計表示 -->
+<div class="summary">
+    <h2>合計</h2>
+    <p>収入: <span id="income">0</span>円</p>
+    <p>支出: <span id="expense">0</span>円</p>
+    <p>残り: <span id="balance">0</span>円</p>
+</div>
+
+<!-- 履歴 -->
+<div class="list">
+    <h2>履歴</h2>
+    <div id="history">
+        <p>まだ記録がありません</p>
+    </div>
+</div>
+
+<script>
+    // データを入れる箱
+    let data = [];
+    
+    // 追加ボタンを押した時の処理
+    function add() {
+        // 入力された値を取得
+        let name = document.getElementById('name').value;
+        let money = document.getElementById('money').value;
+        let type = document.getElementById('type').value;
+        
+        // 空欄チェック
+        if (name === '' || money === '') {
+            alert('内容と金額を入力してください');
+            return;
+        }
+        
+        // データを追加
+        data.push({
+            name: name,
+            money: parseInt(money),
+            type: type
+        });
+        
+        // 画面を更新
+        update();
+        
+        // 入力欄を空にする
+        document.getElementById('name').value = '';
+        document.getElementById('money').value = '';
+    }
+    
+    // 画面を更新する関数
+    function update() {
+        // 合計を計算
+        let totalIncome = 0;
+        let totalExpense = 0;
+        
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].type === 'in') {
+                totalIncome += data[i].money;
+            } else {
+                totalExpense += data[i].money;
+            }
+        }
+        
+        let balance = totalIncome - totalExpense;
+        
+        // 合計を表示
+        document.getElementById('income').textContent = totalIncome;
+        document.getElementById('expense').textContent = totalExpense;
+        document.getElementById('balance').textContent = balance;
+        
+        // 履歴を表示
+        let historyDiv = document.getElementById('history');
+        historyDiv.innerHTML = '';
+        
+        if (data.length === 0) {
+            historyDiv.innerHTML = '<p>まだ記録がありません</p>';
+        } else {
+            for (let i = 0; i < data.length; i++) {
+                let item = data[i];
+                let typeText = item.type === 'in' ? '収入' : '支出';
+                
+                historyDiv.innerHTML += '<div class="item">' + 
+                    item.name + ' - ' + item.money + '円 (' + typeText + ')' +
+                    '</div>';
+            }
+        }
+    }
+</script>
+```
+
+</body>
+</html>
