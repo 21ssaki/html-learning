@@ -82,24 +82,55 @@ button:hover {
 </div>
 
 <script>
+     // 日付フォーマット YYYY-MM-DD
+    function getToday() {
+        const now = new Date();
+        return now.toISOString().split('T')[0];
+    }
+
     function calculateBMI() {
-        // 入力値を取得
-        var height = document.getElementById('height').value;
-        var weight = document.getElementById('weight').value;
+        // 入力値を取得(parseFloatで小数点以下を保持)
+        const height = parseFloat(document.getElementById('height').value);
+        const weight = parseFloat(document.getElementById('weight').value;
         
-        // 入力チェック
-        if (height == '' || weight == '') {
+        // 入力チェック(Not-a-number)
+        if (isNaN(height) || isNaN(weight)) {
             alert('身長と体重を入力してください');
             return;
         }
+        // 異常値チェック（例: 身長50〜250cm, 体重10〜300kg）
+        if (height < 50 || height > 250 || weight < 10 || weight > 300) {
+            alert('身長や体重の数値を確認してください');
+            return;
+        }
+          // 継続日数の処理
+        const today = getToday();
+        const lastDate = localStorage.getItem('lastDate');
+       // 昨日までの継続日数
+        let streak = parseInt(localStorage.getItem('streak')) || 0;
+
+        if (lastDate !== today) {
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            const ymdYesterday = yesterday.toISOString().split('T')[0];
+
+            if (lastDate === ymdYesterday) {
+                streak += 1; // 昨日と連続していれば加算
+            } else {
+                streak = 1; // リセット
+            }
+
+            localStorage.setItem('streak', streak);
+            localStorage.setItem('lastDate', today);
+        }
         
         // BMI計算
-        var heightM = height / 100; // cmをmに変換
-        var bmi = weight / (heightM * heightM);
+        const heightM = height / 100; // cmをmに変換
+        const bmi = weight / (heightM * heightM);
 
         // 結果
         document.getElementById('result').innerHTML = 'BMI: ' + bmi.toFixed(1);   
-        //結果が出るまで非表示
+        //結果を画面に表示
         document.getElementById('result').style.display = 'block';
     }
 </script>
