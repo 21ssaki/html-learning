@@ -11,7 +11,7 @@ HTMLとCSSとJavaScriptの基礎学習として制作した練習作品です。
  *JavaScriptでの計算機能実装 
  *display: noneを使った結果表示の動的制御
 動作確認
- https://21ssaki.github.io/html-learning/BMICalcutor.html
+https://21ssaki.github.io/html-learning/bmi-calculator/index.html
 
 -簡単家計簿作成 
  *AIを利用して作成しました。修正確認は55行目まで完了しています。
