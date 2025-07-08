@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡単家計簿</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- タイトル -->
+  <h1>初心者向け家計簿</h1>
+
+  <!-- 入力フォーム部分 -->
+  <div class="form">
+    <h2>記録を追加</h2>
+    <input type="text" id="name" placeholder="内容（例：スーパー）"> 
+    <input type="number" id="money" placeholder="金額（例：500）"> 
+    <select id="type"> 
+      <option value="out">支出</option>
+      <option value="in">収入</option>
+    </select>
+    <button onclick="add()">追加する</button> 
+  </div>
+
+  <!-- 合計の表示 -->
+  <div class="summary">
+    <h2>合計</h2>
+    <p>収入: ¥<span id="total-in">0</span></p>
+    <p>支出: ¥<span id="total-out">0</span></p>
+  </div>
+
+  <!-- 記録一覧の表示 -->
+  <div class="list" id="list">
+    <h2>記録一覧</h2>
+    <!-- JavaScriptでここに記録が追加される -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
