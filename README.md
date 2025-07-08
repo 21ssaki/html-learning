@@ -14,18 +14,17 @@ HTMLとCSSとJavaScriptの基礎学習として制作した練習作品です。
 https://21ssaki.github.io/html-learning/bmi-calculator/index.html
 
 -簡単家計簿作成 
- *AIを利用して作成しました。修正確認は55行目まで完了しています。
  *border-radius: により角を丸くし、親しみやすいデザインにした
  *box-sizing:border-box; により見た目が崩れにくくした
 動作確認
- https://21ssaki.github.io/html-learning/easy-kakeibo.html
+ https://21ssaki.github.io/html-learning/easy-kakeibo/index.html
  
 -こんにちはゲーム作成
  *botton onclickを利用したボタンクリック
  *countでクリック数をカウント、数により色が変わる機能実装
  *Math.randomでランダムな色を選ぶ
 動作確認
- https://21ssaki.github.io/html-learning/HelloGame.html
+ https://21ssaki.github.io/html-learning/MiniGame/index.html
 
 ## 使用技術
 -HTML/CSS/JavaScript
