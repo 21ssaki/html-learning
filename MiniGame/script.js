@@ -8,8 +8,8 @@ function sayHello() {
 
   const randomIndex = Math.floor(Math.random() * actions.length);
   const action = actions[randomIndex];
-
-  message.textContent = actions;
+  
+  message.textContent = action;
 
   if (count % 3 === 0) { // 3回に1回だけ色を変える
     const colors = ["red", "blue", "green", "orange", "purple"];
