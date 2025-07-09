@@ -1,10 +1,15 @@
 let count = 0;
+const actions = ["たたかう", "ねむる", "たべる"];
 
 function sayHello() {
   count++; // カウントするのに必要
 
   const message = document.getElementById("message");
-  message.textContent = `こんにちは！ボタンを ${count} 回 押した！`;
+
+  const randomIndex = Math.floor(Math.random() * actions.length);
+  const action = actions[randomIndex];
+
+  message.textContent = actions;
 
   if (count % 3 === 0) { // 3回に1回だけ色を変える
     const colors = ["red", "blue", "green", "orange", "purple"];
