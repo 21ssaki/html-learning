@@ -5,6 +5,7 @@ function sayHello() {
   count++; // カウントするのに必要
 
   const message = document.getElementById("message");
+  const btn = document.getElementById("myButton"); // ここでボタン取得
 
   const randomIndex = Math.floor(Math.random() * actions.length);
   const action = actions[randomIndex];
@@ -18,4 +19,6 @@ function sayHello() {
   } else {
     message.style.color = "black"; // それ以外は黒に戻す
   }
+}
+　btn.textContent = "戦闘開始！";
 }
