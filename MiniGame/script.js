@@ -50,3 +50,6 @@ function sayHello(){
 
   updateHP();
 }
+window.onload = function() {
+  updateHP();
+};
