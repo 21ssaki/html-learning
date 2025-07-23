@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html　lang="ja">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ミニゲーム</title>
+  <title>RPG風ミニゲーム</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>RPG風ミニゲーム</h1>
+  
+  <div class="characters">
+    <div class="character">
+      <div class="icon">🐈</div>
+      <div class="hp-bar-background">
+        <div id="cat-hp" class="hp-bar"></div>
+      </div>
+      <div>猫の体力</div>
+    </div>
 
-<h1>RPG風ミニゲーム</h1>
+    <div class="character">
+      <div class="icon">🐕</div>
+      <div class="hp-bar-background">
+        <div id="dog-hp" class="hp-bar"></div>
+      </div>
+      <div>犬の体力</div>
+    </div>
+  </div>
 
 <button id="myButton" onclick="sayHello()">戦闘開始</button>
 
