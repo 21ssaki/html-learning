@@ -1,4 +1,31 @@
-#message {
-  font-size: 2em;
-  transition: color 0.5s;
+.characters {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.character {
+  text-align: center;
+}
+
+.icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.hp-bar-background {
+  width: 150px;
+  height: 20px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 5px auto;
+}
+
+.hp-bar {
+  height: 100%;
+  background: red;
+  width: 100%; /* 初期100% */
+  transition: width 0.5s ease;
+  border-radius: 10px 0 0 10px;
 }
